@@ -206,3 +206,6 @@ h6,
     border: 0px;
     box-sizing: border-box;
 }
+.middle-align {
+    vertical-align: middle;
+}
