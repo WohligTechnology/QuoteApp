@@ -17,6 +17,7 @@
     <gap:platform name="winphone" />
 
     <icon src="img/logo.png" />
+    <gap:splash src="img/splash.png" />
 
     <preference name="phonegap-version" value="3.5.0"/>
     <preference name="permissions" value="none" />
