@@ -17,25 +17,72 @@
                     </label>
                 </div>
             </div>
-            <label class="item item-input">
-                <textarea placeholder="Client Address"></textarea>
-            </label>
-
-            <label class="item item-input">
-                <textarea placeholder="Company Address"></textarea>
-            </label>
-        </div>
-
-        <div class="elements" ng-repeat="element in data.elements">
             <div class="row">
                 <div class="col col-75">
-                    <label class="item item-input">
-                        <input placeholder="Title" ng-model="element.title" />
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Client
+                        </div>
+                        <select>
+                            <option>
+
+                            </option>
+                        </select>
                     </label>
                 </div>
+
                 <div class="col col-25">
-                    <button class="button button-block button-positive" ng-click="changedescstatus(element);">
-                        Show Desc
+                    <button class="button button-block button-positive" ng-click="showCompanyAddPopup();">
+                        Add
+                    </button>
+                </div>
+
+            </div>
+            
+                        <div class="row">
+                <div class="col col-75">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Company
+                        </div>
+                        <select>
+                            <option>
+
+                            </option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col col-25">
+                    <button class="button button-block button-positive" ng-click="showVendorAddPopup();">
+                        Add
+                    </button>
+                </div>
+
+            </div>
+            
+        </div>
+        </div>
+        <div class="list">
+        
+        <div class="elements" ng-repeat="element in elementData.elements">
+            <div class="row">
+               <div class="col">
+                    <button class="button button-block button-positive " ng-click="removeElements(element);">
+                        Delete
+                    </button>
+                </div>
+                </div>
+                <div class="row">
+               
+                <div class="col col-75">
+                    <div class="item item-input">
+                        <input placeholder="Title" ng-model="element.title" />
+                    </div>    
+                </div>
+                <div class="col col-25">
+                    <button class="button button-block button-positive " ng-click="changedescstatus(element);">
+                        Desc
                     </button>
                 </div>
             </div>
@@ -61,12 +108,9 @@
                 </div>
             </div>
         </div>
+        </div>
         <button class="button button-full button-positive" ng-click="addelements();">
             Add More
         </button>
-
-
-
-
     </ion-content>
 </ion-view>
