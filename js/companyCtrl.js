@@ -9,8 +9,7 @@ angular.module('companyController', ['companyFactory'])
         $scope.data = {}
 
         var myPopup = $ionicPopup.show({
-            template: ' <label class="item item-input item-floating-label"> <span class="input-label">First Name</span>     <input type="text" placeholder="Company Name" ng-model="data.companyName"> </label> <label class="item item-input item-floating-label"> <span class="input-label">Address</span>     <textarea placeholder="Company Address" ng-model="data.companyAddress"> </textarea> </label> <label class="item item-input"> <span class="input-label">Email</span>  <input type="email" ng-model="data.companyEmail" required > </label>  <label class="item item-input">  <span class="input-label">Mobile</span>  <input type="tel" ng-model="data.companyMobile"> </label> ',
-            title: 'Enter New Company Details',
+            templateUrl: 'templates/companyAdd.html',
             scope: $scope,
             buttons: [
                 {
