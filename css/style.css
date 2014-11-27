@@ -1,5 +1,28 @@
 /* Empty. Add your own CSS if you like */
-
+@font-face {
+    font-family: 'Cinzel';
+    src: url('Cinzel-Regular.ttf');
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Hairline.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Bold.ttf');
+    font-weight: 700;
+}
 body,
 p,
 h1,
