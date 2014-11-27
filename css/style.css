@@ -1,1 +1,208 @@
 /* Empty. Add your own CSS if you like */
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+a,
+input,
+button,
+select,
+textarea {
+    font-family: 'Lato', cursive !important;
+}
+.bar .title {
+    font-family: 'Cinzel', cursive !important;
+    font-size:
+}
+.button-right button {
+    float: right;
+    min-height: 57px;
+    padding: 0 25px 0 10px;
+    border-radius: 0px;
+    width: auto;
+    -webkit-transform: skew(-20deg)translateX(20px);
+}
+.button-right button span {
+    -webkit-transform: skew(20deg);
+    display: block;
+}
+.button-right button+button {
+    padding: 0px 10px;
+}
+.item {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    border: 0px;
+    background: white;
+}
+.item .content {
+    padding: 10px 0;
+}
+.pane,
+.view {
+    background-color: #eee;
+}
+/*Buttons*/
+
+.button.button-dark {
+    border-color: #50b2e3;
+    background-color: #50b2e3;
+    color: #fff;
+}
+.button.button-dark:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.button.button-dark.active,
+.button.button-dark.activated {
+    border-color: #50b2e3;
+    background-color: #50b2e3;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.button.button-dark.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #50b2e3;
+}
+.button.button-dark.button-icon {
+    border-color: transparent;
+    background: none;
+}
+.button.button-dark.button-outline {
+    border-color: #50b2e3;
+    background: transparent;
+    color: #50b2e3;
+}
+.button.button-dark.button-outline.active,
+.button.button-dark.button-outline.activated {
+    background-color: #50b2e3;
+    box-shadow: none;
+    color: #fff;
+}
+.button.button-light {
+    border-color: #a0d5f0;
+    background-color: #a0d5f0;
+    color: #fff;
+}
+.button.button-light:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.button.button-light.active,
+.button.button-light.activated {
+    border-color: #a0d5f0;
+    background-color: #a0d5f0;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.button.button-light.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #a0d5f0;
+}
+.button.button-light.button-icon {
+    border-color: transparent;
+    background: none;
+}
+.button.button-light.button-outline {
+    border-color: #a0d5f0;
+    background: transparent;
+    color: #a0d5f0;
+}
+.button.button-light.button-outline.active,
+.button.button-light.button-outline.activated {
+    background-color: #a0d5f0;
+    box-shadow: none;
+    color: #fff;
+}
+.button.button-delete {
+    border-color: #fe7e7e;
+    background-color: #fe7e7e;
+    color: #fff;
+}
+.button.button-delete:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.button.button-delete.active,
+.button.button-delete.activated {
+    border-color: #fe7e7e;
+    background-color: #fe7e7e;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.button.button-delete.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fe7e7e;
+}
+.button.button-delete.button-icon {
+    border-color: transparent;
+    background: none;
+}
+.button.button-delete.button-outline {
+    border-color: #fe7e7e;
+    background: transparent;
+    color: #fe7e7e;
+}
+.button.button-delete.button-outline.active,
+.button.button-delete.button-outline.activated {
+    background-color: #fe7e7e;
+    box-shadow: none;
+    color: #fff;
+}
+/*end*/
+
+.quote-list .item {
+    margin: 4px 0px 5px;
+    min-height: 52px;
+}
+.bar.bar-stable .title {
+    color: #50b2e3;
+    font-size: 22px;
+}
+.bar.bar-stable {
+    border: 0px;
+    background-color: #e5f4fb;
+    background-image: linear-gradient(0deg, #e5f4fb, #e5f4fb 50%, transparent 50%);
+    color: #50b2e3;
+}
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+    color: #777;
+    font-weight: 400;
+}
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+    color: #333;
+    font-weight: 300;
+}
+.menu-content {
+    box-shadow: -2px 0px 1px rgba(194, 194, 194, 0.27), -1px 0px transparent;
+}
+.quote-list .item-avatar > img {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+.button-img {
+    background: transparent;
+    border: 0px;
+    box-sizing: border-box;
+}
