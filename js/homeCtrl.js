@@ -11,9 +11,9 @@ angular.module('homeController', [])
             amount: ""
         }, ];
         
-        
 //Adding Elements
         $scope.addelements = function () {
+            
             $scope.elementData.elements.push({
                 title: "",
                 description: "",
@@ -27,6 +27,7 @@ angular.module('homeController', [])
         $scope.removeElements = function (element) {
             var indexwill=$scope.elementData.elements.indexOf(element);
             $scope.elementData.elements.splice(indexwill,1);
+ 
         };
 
         $scope.changedescstatus = function (element) {

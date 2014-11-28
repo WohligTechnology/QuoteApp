@@ -46,7 +46,7 @@ textarea {
 }
 .button-right button {
     float: right;
-    min-height: 59px;
+    min-height: 50px;
     padding: 0 30px 0 15px;
     border-radius: 0px;
     width: auto;
@@ -67,7 +67,7 @@ textarea {
     border: 0px;
 }
 .item .content {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .pane,
 .view {
@@ -187,9 +187,9 @@ textarea {
 
 .quote-list .item {
     margin: 4px 0px 5px;
-    height: 59px;
+    height: 50px;
     overflow: hidden;
-    min-height: 52px;
+    min-height: 50px;
 }
 .bar.bar-stable .title {
     color: #50b2e3;
@@ -224,13 +224,23 @@ h6,
 }
 .quote-list .item-avatar > img {
     position: absolute;
-    top: 10px;
-    left: 0px;
+    top: 5px;
+    left: 5px;
+    border-radius: 0px;
 }
 .button-img {
     background: transparent;
     border: 0px;
     box-sizing: border-box;
+}
+.button-img:before {
+    content: "\f20e";
+    font-family: "Ionicons";
+    font-size: 30px;
+    position: absolute;
+    left: -12px;
+    top: 0px;
+    color: #50b2e3;
 }
 .middle-align {
     vertical-align: middle;
@@ -263,23 +273,27 @@ button {
     border-color: #df4a32;
 }
 .button-fb:hover {
-    background: white;
+    background: transparent;
     border-color: #4364ab;
     color: #4364ab;
 }
 .button-tw:hover {
-    background: white;
+    background: transparent;
     border-color: #28a9e2;
     color: #28a9e2;
 }
 .button-google:hover {
-    background: white;
+    background: transparent;
     border-color: #df4a32;
     color: #df4a32;
 }
 .login-btn {
     text-align: center;
     margin-top: 20%;
+}
+.btn-final {
+    text-align: center;
+    margin: 20px 0;
 }
 .button-bird {
     position: relative;
@@ -312,7 +326,7 @@ button {
     margin: 0;
 }
 .item.item-avatar.button-right {
-    padding-left: 50px;
+    padding-left: 55px;
 }
 .content select {
     -webkit-appearance: none;
@@ -322,9 +336,9 @@ button {
     font-size: 16px;
 }
 .col.content {
-    padding: 10px 6px;
+    padding: 5px 10px;
     background: white;
-    height: 59px;
+    height: 50px;
 }
 .content input {
     height: auto;
@@ -371,9 +385,18 @@ select[readonly] {
     position: relative;
     min-height: 79px;
 }
-.in-item.button-right {
+.blue-bg .item.simple {
+    background: transparent;
+    padding: 0px;
+    min-height: 52px;
+}
+.blue-bg .item.simple button {
+    width: 60%;
+    margin: 2px 0px;
+}
+.in-item {
     position: relative;
-    left: 25px;
+    right: -7%;
     width: 94%;
 }
 .num {
@@ -382,3 +405,80 @@ select[readonly] {
 .in-item+.in-item {
     margin-top: 10px;
 }
+.in-col {
+    width: 24%;
+    overflow: hidden;
+    float: left;
+}
+.in-col+.in-col {
+    margin-left: 5px;
+}
+.content.description {
+    height: auto;
+}
+textarea {
+    resize: vertical;
+}
+.blue-bg .item+.item {
+    margin-top: 5px;
+}
+.list {
+    margin-bottom: 0px;
+    padding: 0;
+}
+.pic {
+    width: 67px;
+    min-width: 67px;
+    margin-right: 15px;
+    height: 67px;
+    overflow: hidden;
+}
+.bar-quote {
+    height: 85px;
+    position: relative;
+    padding: 10px 10px 0px 10px;
+    background: #E5F4FB;
+    overflow: hidden;
+    border-bottom-width: 2px;
+    border-color: #A0D5F0;
+}
+.pic img {
+    width: 100%;
+}
+.content h2 {
+    font-size: 16px;
+    margin: 0px;
+}
+.bar-quote .button-slant {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.bar-quote .content {
+    width: 100%;
+}
+.button-slant {
+    -webkit-transform: skew(-20deg)translateX(20px);
+    padding: 0px 25px !important;
+}
+.button-slant span {
+    -webkit-transform: skew(20deg);
+}
+.has-header2 {
+    top: 85px;
+}
+.has-header2 .quote-list .item {
+    margin: 0px 0px 5px;
+}
+.item.active,
+.item.activated,
+.item-complex.active .item-content,
+.item-complex.activated .item-content,
+.item .item-content.active,
+.item .item-content.activated {
+    background-color: #eee;
+}
+.bar-stable .button {
+    color: #50b2e3;
+}
+a.item-content {color: #777;}

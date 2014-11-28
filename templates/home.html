@@ -7,7 +7,7 @@
     <ion-content class="has-header">
         <div class="list quote-list grey-bg">
             <ion-item class="item-avatar button-right">
-                <img src="img/logo.png">
+                <img src="img/Twitter-square-logo1.png">
                 <button class="button button-small button-dark" ng-click="showCompanyAddPopup();">
                     <span>Add</span>
                 </button>
@@ -38,9 +38,9 @@
                     </div>
                 </div>
             </ion-item>
-            
+
             <ion-item class="item-avatar button-right">
-                <img src="img/logo.png">
+                <img src="img/Twitter-square-logo1.png">
                 <button class="button button-small button-dark" ng-click="showVendorAddPopup();">
                     <span>Add</span>
                 </button>
@@ -63,80 +63,100 @@
         </div>
 
 
-     
+
         <div class="list blue-bg">
-            <div class="item">
-               <span class="num">1.</span>
+
+            <div class="item" ng-repeat="element in elementData.elements">
+                <span class="num">1.</span>
                 <div class="in-item button-right">
-                   <button class="button button-small button-dark">
-                    <span>Show Description</span>
-                </button>
+                    <button class="button button-small button-dark" ng-click="changedescstatus(element);">
+                        <span ng-show="!element.showdescription">Show Description</span>
+                        <span ng-show="element.showdescription">Hide Description</span>
+                    </button>
                     <div class="col content">
                         <h4>Title</h4>
-                        <input type="text">
-                        
+                        <input type="text" ng-model="element.title">
+
                     </div>
                 </div>
+                <div class="in-item" ng-show="element.showdescription">
+                    <div class="col content description">
+                        <h4>Description</h4>
+                        <textarea ng-model="element.description"></textarea>
+                    </div>
+                </div>
+
                 <div class="in-item button-right">
-                   <button class="button button-small button-delete">
-                    <span>Delete</span>
-                </button>
+                    <button class="button button-small button-delete" ng-click="removeElements(element);">
+                        <span>Delete</span>
+                    </button>
                     <div class="col content">
-                        <h4>Title</h4>
-                        <input type="text">
-                        
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="elements" ng-repeat="element in elementData.elements">
-                <div class="row">
-                    <div class="col">
-                        <button class="button button-block button-positive " ng-click="removeElements(element);">
-                            Delete
-                        </button>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col col-75">
-                        <div class="item item-input">
-                            <input placeholder="Title" ng-model="element.title" />
+                        <div class="in-col">
+                            <h4>Qty.</h4>
+                            <input type="text" ng-model="element.quantity">
                         </div>
-                    </div>
-                    <div class="col col-25">
-                        <button class="button button-block button-positive " ng-click="changedescstatus(element);">
-                            Desc
-                        </button>
+                        <div class="in-col">
+                            <h4>Price</h4>
+                            <input type="text" ng-model="element.price">
+                        </div>
+                        <div class="in-col">
+                            <h4>Amount</h4>
+                            <input type="text" ng-model="element.amount">
+                        </div>
+
                     </div>
                 </div>
 
-                <label class="item item-input">
-                    <textarea placeholder="Description" ng-model="element.description" ng-show="element.showdescription"></textarea>
-                </label>
+            </div>
+            
+            <ion-item class="button-right simple">
+            <button class="button button-full button-dark" ng-click="addelements();">
+                <span>Add More</span>
+            </button>
+            </ion-item>
+            
+        </div>
+<hr class="blue">
+        <div class="list quote-list grey-bg">
+            <ion-item>
                 <div class="row">
-                    <div class="col">
-                        <label class="item item-input">
-                            <input placeholder="Quantity" ng-model="element.quantity">
-                        </label>
+                    <div class="col content">
+                        <h4>Total Qty.</h4>
+                        <input type="text" readonly>
                     </div>
-                    <div class="col">
-                        <label class="item item-input">
-                            <input placeholder="Price" ng-model="element.price">
-                        </label>
+                    <div class="col content">
+                        <h4>Total Amt.</h4>
+                        <input type="text" readonly>
                     </div>
-                    <div class="col">
-                        <label class="item item-input">
-                            <input placeholder="Amount" ng-model="element.amount">
-                        </label>
+                    <div class="col content">
+                        <h4>Tax Rate</h4>
+                        <input type="text" readonly>
+                    </div>
+                    <div class="col content">
+                        <h4>Tax Amt.</h4>
+                        <input type="text" readonly>
                     </div>
                 </div>
-            </div>
+            </ion-item>
+            <ion-item>
+                <div class="row">
+                    <div class="col content">
+                        <h4>Payment Terms</h4>
+                        <input type="text">
+                    </div>
+                    <div class="col content">
+                        <h4>Final Amt.</h4>
+                        <input type="text" value="Rs.40,000" readonly>
+                    </div>
+                </div>
+            </ion-item>
         </div>
-        
-        <button class="button button-full button-positive" ng-click="addelements();">
-            Add More
-        </button>
+
+        <div class="btn-final">
+            <button class="button button-tw button-bird">
+                Preview
+            </button>
+        </div>
+
     </ion-content>
 </ion-view>
