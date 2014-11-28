@@ -1,27 +1,27 @@
 <div class="modal">
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-        <div class="padding">
-    <button class="button button-block button-positive">
-  Login With Facebook
-</button>
-      </div>
-    <div class="padding">
-        <button class="button button-block button-positive">
-  Login With Twitter
-</button>
-        </div>
-    <div class="padding">
-    
-      <button class="button button-block button-positive">
-  Login With Google
-</button>
-        </div>    </form>
-  </ion-content>
+    <ion-content>
+       
+       <div class="logo">
+           <img src="img/full-logo.png" alt="">
+       </div>
+       
+        <form ng-submit="doLogin();" class="login-btn">
+            <div class="padding">
+                <button class="button button-fb button-bird">
+                    Login with Facebook
+                </button>
+            </div>
+            <div class="padding">
+                <button class="button button-tw button-bird">
+                    Login with Twitter
+                </button>
+            </div>
+            <div class="padding">
+
+                <button class="button button-google button-bird">
+                    Login with Google
+                </button>
+            </div>
+        </form>
+    </ion-content>
 </div>

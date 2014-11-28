@@ -1,4 +1,5 @@
 /* Empty. Add your own CSS if you like */
+
 @font-face {
     font-family: 'Cinzel';
     src: url('Cinzel-Regular.ttf');
@@ -231,4 +232,76 @@ h6,
 }
 .middle-align {
     vertical-align: middle;
+}
+button {
+    border-radius: 0px !important;
+}
+.logo img {
+    width: 85%;
+    margin: 30px auto;
+    display: block;
+}
+.button-fb,
+.button-tw,
+.button-google {
+    color: white;
+    width: 60%;
+    -webkit-transition: 300ms;
+}
+.button-fb {
+    background: #4364ab;
+    border-color: #4364ab;
+}
+.button-tw {
+    background: #28a9e2;
+    border-color: #28a9e2;
+}
+.button-google {
+    background: #df4a32;
+    border-color: #df4a32;
+}
+.button-fb:hover {
+    background: white;
+    border-color: #4364ab;
+    color: #4364ab;
+}
+.button-tw:hover {
+    background: white;
+    border-color: #28a9e2;
+    color: #28a9e2;
+}
+.button-google:hover {
+    background: white;
+    border-color: #df4a32;
+    color: #df4a32;
+}
+.login-btn {
+    text-align: center;
+    margin-top: 20%;
+}
+.button-bird {
+    position: relative;
+    margin-right: -10%;
+}
+.button-bird:before {
+    background: url(../img/bird-sprite.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -50px;
+    width: 92px;
+    height: 80px;
+    top: -15px;
+    content: '';
+}
+.button-fb:before {
+    background-position-x: 0px;
+}
+.button-google:before {
+    background-position-x: -91px;
+}
+.button-tw:before {
+    background-position-x: -183px;
+}
+.login-btn .padding+.padding {
+    padding-top: 40px
 }
