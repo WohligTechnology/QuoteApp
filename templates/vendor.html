@@ -11,17 +11,17 @@
 <ion-content class="has-header">
     <div class="list quote-list">
 
-            <div class="item item-avatar button-right">
+            <div class="item item-avatar button-right" ng-repeat="vendor in vendors">
                 <img src="img/logo.png">
-                <button class="button button-small button-delete">
+                <button class="button button-small button-delete" ng-click="deleteConfirm(vendor.id);">
                     <span>Delete</span>
                 </button>
-                <button class="button button-small button-light">
+                <button class="button button-small button-light" ng-click="showEditPopup(vendor.id)">
                     <span>View</span>
                 </button>
                 <div class="content">
-                    <h2>Wohlig Technologies LLP.</h2>
-                    <h4>info@wohlig.com</h4>
+                    <h2>{{vendor.name}}</h2>
+                    <h4>{{vendor.email}}</h4>
                 </div>
 
 
