@@ -3,7 +3,7 @@ angular.module('quotationsController', ['quotationsFactory'])
     
 var ongetsuccess=function (data) {
             console.log(data);
-            $scope.quotations = data;
+            $scope.quotations = data.queryresult;
         };
         var ongeterror=function(data) {
             console.error(data);

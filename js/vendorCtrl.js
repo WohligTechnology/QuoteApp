@@ -27,41 +27,16 @@ angular.module('vendorController', ['vendorFactory'])
 
 
         //Editing Company
-        $scope.showEditPopup = function (vendorid) {
-
-            var onEditSuccess = function (data) {
-                $scope.vendorData = data;
-                console.log($scope.vendorData);
-            }
+        $scope.showEditVendor = function (vendorid) {
+            $location.path("/app/editVendor/"+vendorid);
 
 
-            var onEditError = function (data) {}
-            vendorFactory.getSingleVendor(vendorid, onEditSuccess, onEditError);
+            
 
 
 
 
 
-
-            var myPopup = $ionicPopup.show({
-                templateUrl: 'templates/vendorView.html',
-                title: 'Vendor Details',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: 'Cancel'
-                },
-                    {
-                        text: '<b>Save</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
-                                e.preventDefault();
-                                
-                         
-                        }
-       },
-     ]
-            });
         }
 
         //Deleting a Vendor
@@ -102,4 +77,35 @@ angular.module('vendorController', ['vendorFactory'])
                     vendorFactory.addVendor($scope.vendor,onAddSucess,onErrorSucess);
                     
                     }
-                    });
+                    })
+
+         .controller('editVendorCtrl', function ($scope, $ionicModal, $ionicPopup, $timeout, vendorFactory, $http,$stateParams,$location) {
+                $scope.vendor = {};
+                $scope.vendor.id = $stateParams.id;
+             var OnSucess  = function(data)
+             {
+                 $scope.vendor = data;
+                 console.log($scope.vendor);
+             }
+             var Onerror = function(data)
+             {
+                 console.log(data);
+             }
+                vendorFactory.getSingleVendor($scope.vendor.id,OnSucess,Onerror);
+             
+             $scope.editVendor = function()
+             {
+                 console.log($scope.vendor);
+                 var onEditSucess = function(data)
+                 {
+                     console.log(data);
+                     $location.path("/app/vendor")
+                 }
+                 var OnEditerror = function(data)
+                 {
+                     console.log(data);
+                 }
+                 vendorFactory.editVendor($scope.vendor,onEditSucess,OnEditerror);
+             }
+             
+            });

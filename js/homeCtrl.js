@@ -1,5 +1,5 @@
-angular.module('homeController', [])
-    .controller('HomeCtrl', function ($scope, $ionicPopup, $timeout) {
+angular.module('homeController', ['homeFactory','vendorFactory','companyFactory'])
+    .controller('HomeCtrl', function ($scope, $ionicPopup, $timeout,$location,homeFactory,vendorFactory) {
 
         $scope.elementData = {};
         $scope.elementData.elements = [{
@@ -40,56 +40,25 @@ angular.module('homeController', [])
 
         //Adding New Company
         $scope.showCompanyAddPopup = function () {
-            $scope.data = {}
-
-            var myPopup = $ionicPopup.show({
-                templateUrl: 'templates/companyAdd.html',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: 'Cancel'
-                },
-                    {
-                        text: '<b>Save</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
-                            if (!$scope.data) {
-
-                                e.preventDefault();
-                            } else {
-                                console.log($scope.data);
-                            }
-                        }
-       },
-     ]
-            });
-        }
+            $location.path("/app/addCompany");
+         }
         //Adding New Vendor/Client
         $scope.showVendorAddPopup = function () {
-            $scope.data = {}
-            var myPopup = $ionicPopup.show({
-                templateUrl: 'templates/vendorAdd.html',
-                title: 'Enter New Vendor Details',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: 'Cancel'
-                },
-                    {
-                        text: '<b>Save</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
-                            if (!$scope.data) {
+                $location.path("/app/addVendor");
+                }
+//Getting All Companies
+        var ongetsuccess = function (data) {
+            console.log(data);
+            $scope.companies = data.queryresult;
+        };
 
-                                e.preventDefault();
-                            } else {
-                                console.log($scope.data);
-                            }
-                        }
-       },
-     ]
-            });
-        }
+        var ongeterror = function (data) {
+            console.error(data);
+        };
+
+        companyFactory.getCompanies(ongetsuccess, ongeterror);
+
+
 
         
 
