@@ -1,11 +1,11 @@
 angular.module('vendorController', ['vendorFactory'])
-    .controller('VendorCtrl', function ($scope, $ionicModal, $ionicPopup, $timeout, vendorFactory, $http) {
+    .controller('VendorCtrl', function ($scope, $ionicModal, $ionicPopup, $timeout, vendorFactory, $http,$location) {
 
 
         //Get All Vendors        
         var ongetsuccess = function (data) {
             console.log(data);
-            $scope.vendors = data;
+            $scope.vendors = data.queryresult;
         };
         var ongeterror = function (data) {
             console.error(data);
@@ -18,32 +18,11 @@ angular.module('vendorController', ['vendorFactory'])
 
 
 
+//Showing Add Vendor Template
+        $scope.showAddVendor = function () {
+            $location.path("/app/addVendor");
 
-        $scope.showAddPopup = function () {
-            $scope.data = {}
 
-            var myPopup = $ionicPopup.show({
-                templateUrl: 'templates/vendorAdd.html',
-                title: 'Enter New Vendor Details',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: 'Cancel'
-                },
-                    {
-                        text: '<b>Save</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
-                            if (!$scope.data) {
-
-                                e.preventDefault();
-                            } else {
-                                console.log($scope.data);
-                            }
-                        }
-       },
-     ]
-            });
         }
 
 
@@ -110,3 +89,17 @@ angular.module('vendorController', ['vendorFactory'])
             });
         };
     })
+     .controller('addVendorCtrl', function ($scope, $ionicModal, $ionicPopup, $timeout, vendorFactory, $http) {
+                    $scope.vendor = {};
+                    $scope.addVendor = function(){
+                    var onErrorSucess = function(data){
+                    console.log(data);
+                    }
+                    var onAddSucess = function(data){
+                    console.log(data);
+                    }
+                    
+                    vendorFactory.addVendor($scope.vendor,onAddSucess,onErrorSucess);
+                    
+                    }
+                    });

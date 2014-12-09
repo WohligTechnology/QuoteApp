@@ -1,60 +1,37 @@
-
 angular.module('companyController', ['companyFactory'])
-    .controller('CompanyCtrl', function ($scope, $ionicPopup, $timeout, companyFactory, $http) {
+    .controller('CompanyCtrl', function ($scope, $ionicPopup, $timeout, companyFactory, $http, $location) {
         //Demo factory
-        var ongetsuccess=function (data) {
+        var ongetsuccess = function (data) {
             console.log(data);
-            $scope.companies = data;
+            $scope.companies = data.queryresult;
         };
-        var ongeterror=function(data) {
+
+        var ongeterror = function (data) {
             console.error(data);
         };
-        
-        companyFactory.getCompanies(ongetsuccess,ongeterror);
-        
-        
-        
-        var onDeleteSucess = function(data)
-        {
+
+        companyFactory.getCompanies(ongetsuccess, ongeterror);
+
+
+
+        var onDeleteSucess = function (data) {
             console.log("Delete is Success");
-            companyFactory.getCompanies(ongetsuccess,ongeterror);
-        
+            companyFactory.getCompanies(ongetsuccess, ongeterror);
+
         }
-        
-        
-        var OnDeleteError = function(data)
-        {
+
+
+        var OnDeleteError = function (data) {
             console.log("Delete is  Not Success");
-            companyFactory.getCompanies(ongetsuccess,ongeterror);
-        
+            companyFactory.getCompanies(ongetsuccess, ongeterror);
+
         }
 
 
         //Adding New Company
-        $scope.showAddPopup = function () {
-            $scope.data = {}
-
-            var myPopup = $ionicPopup.show({
-                templateUrl: 'templates/companyAdd.html',
-                scope: $scope,
-                buttons: [
-                    {
-                        text: 'Cancel'
-                },
-                    {
-                        text: '<b>Save</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
-                            if (!$scope.data) {
-
-                                e.preventDefault();
-                            } else {
-                                console.log($scope.data);
-                            }
-                        }
-       },
-     ]
-            });
+        $scope.showAddCompany = function () {
+            $location.path("/app/addVendor");
+            
         }
 
 
@@ -96,13 +73,13 @@ angular.module('companyController', ['companyFactory'])
             });
             confirmPopup.then(function (res) {
                 if (res) {
-                    companyFactory.deleteCompany(id,onDeleteSucess,OnDeleteError);
-                    
-                    
-                    
-                    
-                    
-                    
+                    companyFactory.deleteCompany(id, onDeleteSucess, OnDeleteError);
+
+
+
+
+
+
                 } else {
                     console.log('You are not sure');
                 }
@@ -110,3 +87,20 @@ angular.module('companyController', ['companyFactory'])
         };
 
     })
+
+.controller('addCompanyCtrl', function ($scope, $ionicPopup, $timeout, companyFactory, $http) {
+
+    $scope.company = {};
+    $scope.addCompany = function () {
+        var onAddSucess = function (data) {
+            console.log(data);
+        }
+        var onAddError = function (data) {
+            console.log(data);
+        }
+
+        companyFactory.addCompany($scope.company, onAddSucess, onAddError);
+    }
+
+
+});

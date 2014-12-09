@@ -1,12 +1,134 @@
-<label class="item item-input"> <span class="input-label">First Name</span> 
-    <input type="text" placeholder="Company Name" ng-model="data.companyName">
-</label>
-<label class="item item-input"> <span class="input-label">Address</span> 
-    <textarea placeholder="Company Address" ng-model="data.companyAddress"></textarea>
-</label>
-<label class="item item-input"> <span class="input-label">Email</span> 
-    <input type="email" ng-model="data.companyEmail" required>
-</label>
-<label class="item item-input"> <span class="input-label">Mobile</span> 
-    <input type="tel" ng-model="data.companyMobile">
-</label>
+<ion-view title="Add Company">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button-img">
+            <img src="img/header.png" alt="" class="full-img">
+        </button>
+    </ion-nav-buttons><ion-content class="has-header">
+           
+<hr class="blue">
+<ion-item class="transparent">
+<div class="col content">
+    <h4>Company Name</h4>
+    <input type="text" ng-model="company.name">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>Email</h4>
+    <input type="text" ng-model="company.email">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>Contact</h4>
+    <input type="text" ng-model="company.contact">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>Logo</h4>
+    <input type="file" ng-model="company.email">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>Address</h4>
+    <textarea ng-model="company.address"></textarea>
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>City</h4>
+    <input type="text" ng-model="company.city">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>State</h4>
+    <input type="text" ng-model="company.state">
+</div>
+<hr class="blue">
+<div class="col content">
+    <h4>Country</h4>
+    <input type="text" ng-model="company.country">
+</div>
+<hr class="blue">
+
+<div class="col content">
+    <h4>Pin Code</h4>
+    <input type="text" ng-model="company.pincode">
+</div>
+<hr class="blue">
+
+<div class="col content">
+    <h4>Landmark</h4>
+    <input type="text" ng-model="company.landmark">
+</div>
+<hr class="blue">
+
+<div class="col content">
+    <h4>Vat</h4>
+    <input type="text" ng-model="company.vat">
+</div>
+<hr class="blue">
+
+<div class="col content">
+    <h4>Tin</h4>
+    <input type="text" ng-model="company.tin">
+</div>
+<hr class="blue">
+
+<div class="col content">
+    <h4>Pan</h4>
+    <input type="text" ng-model="company.pan">
+</div>
+
+
+<div class="btn-final">
+    <button class="button button-tw button-bird" ng-click=addCompany();>
+        Add 
+    </button>
+</div>
+
+    
+</ion-item>
+       
+           
+           
+<!--    <label class="item item-input"> <span class="input-label">Company Name <span class="asterik">*</span></span> 
+        <input type="text" placeholder="Company Name" ng-model="data.companyName">
+        </label>
+        <label class="item item-input"> <span class="input-label">Email</span>
+        <input type="email" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Address</span> 
+        <textarea placeholder="Company Address" ng-model="data.companyAddress"></textarea>
+        </label>
+        <label class="item item-input"> <span class="input-label">City</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">State</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Country</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">PinCode</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Landmark</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Vat</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Tin</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Pan</span>
+        <input type="text" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Logo</span>
+        <input type="file" ng-model="data.companyEmail" required>
+        </label>
+        <label class="item item-input"> <span class="input-label">Mobile</span> 
+        <input type="tel" ng-model="data.companyMobile">
+        </label> 
+        
+    -->    
+        </ion-content>
+        </ion-view>
