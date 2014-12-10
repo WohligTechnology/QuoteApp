@@ -2,12 +2,12 @@ angular.module('companyFactory', [])
     .factory('companyFactory', function ($http) {
         var factory = {};
         factory.getCompanies = function (callbacksuccess, callbackerror) {
-            $http.get('http://wohlig.biz/quotation/index.php/json/getallcompanies', {}).success(callbacksuccess).error(callbackerror);
+            $http.get(ajaxurl+'json/getallcompanies', {}).success(callbacksuccess).error(callbackerror);
         };
         
         factory.deleteCompany = function (id, callbacksuccess, callbackerror) {
         console.log(id);
-        $http.get('http://wohlig.biz/quotation/index.php/json/deletecompany', {
+        $http.get(ajaxurl+'json/deletecompany', {
             params: {
                 companyid: id
             }
@@ -16,7 +16,7 @@ angular.module('companyFactory', [])
 //Get Single Company
                 factory.getSingleCompany = function (id, callbacksuccess, callbackerror) {
             console.log(id);
-            $http.get('http://wohlig.biz/quotation/index.php/json/getsinglecompany', {
+            $http.get(ajaxurl+'json/getsinglecompany', {
                 params: {
                     id: id
                 }
@@ -31,7 +31,7 @@ angular.module('companyFactory', [])
         console.log(company);
         $http({
                 method: "post",
-                url: 'http://wohlig.biz/quotation/index.php/json/addcompany',
+                url: ajaxurl+'json/addcompany',
                 data: {
                 user: "Vishal",
                 name: company.name,
@@ -66,7 +66,7 @@ angular.module('companyFactory', [])
             console.log(company);
             $http({
                 method: "post",
-                url: 'http://wohlig.biz/quotation/index.php/json/editcompany',
+                url: ajaxurl+'json/editcompany',
                 data: {
                     id: company.id,
                     user: "Vishal",

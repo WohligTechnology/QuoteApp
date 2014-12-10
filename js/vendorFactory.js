@@ -2,12 +2,12 @@ angular.module('vendorFactory', [])
     .factory('vendorFactory', function ($http) {
         var vendor = {};
         vendor.getVendors = function (callbacksuccess, callbackerror) {
-            $http.get('http://wohlig.biz/quotation/index.php/json/getallvendors', {}).success(callbacksuccess).error(callbackerror);
+            $http.get(ajaxurl+'json/getallvendors', {}).success(callbacksuccess).error(callbackerror);
         };
 
         vendor.delete = function (id, callbacksuccess, callbackerror) {
             console.log(id);
-            $http.get('http://wohlig.biz/quotation/index.php/json/deletevendor', {
+            $http.get(ajaxurl+'json/deletevendor', {
                 params: {
                     vendorid: id
                 }
@@ -16,7 +16,7 @@ angular.module('vendorFactory', [])
 
         vendor.getSingleVendor = function (id, callbacksuccess, callbackerror) {
             console.log(id);
-            $http.get('http://wohlig.biz/quotation/index.php/json/getsinglevendor', {
+            $http.get(ajaxurl+'json/getsinglevendor', {
                 params: {
                     id: id
                 }
@@ -27,7 +27,7 @@ angular.module('vendorFactory', [])
             console.log(vendor);
             $http({
                 method: "post",
-                url: 'http://wohlig.biz/quotation/index.php/json/addvendor',
+                url: ajaxurl+'json/addvendor',
                 data: {
                     companyid: vendor.company,
                     name: vendor.name,
@@ -60,7 +60,7 @@ angular.module('vendorFactory', [])
             console.log(vendor);
             $http({
                 method: "post",
-                url: 'http://wohlig.biz/quotation/index.php/json/editvendor',
+                url: ajaxurl+'json/editvendor',
                 data: {
                     id: vendor.id,
                     companyid: vendor.company,

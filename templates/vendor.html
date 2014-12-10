@@ -12,7 +12,7 @@
     <div class="list quote-list">
 
             <div class="item item-avatar button-right" ng-repeat="vendor in vendors">
-                <img src="img/logo.png">
+                <img ng-src="img/{{vendor.logo}}">
                 <button class="button button-small button-delete" ng-click="deleteConfirm(vendor.id);">
                     <span>Delete</span>
                 </button>

@@ -16,10 +16,8 @@
                 </button>
                 <div class="content">
                     <h4>My Company</h4>
-                    <select name="" id="">
-                        <option value="">Wohlig Technologies LLP.</option>
-                        <option value="">Twitter Inc.</option>
-                        <option value="">Facebook Inc.</option>
+                    <select name="" ng-model="elementData.company" id="">
+                        <option value="{{company.id}}" ng-repeat="company in companies" ng-bind="company.name"></option>
                     </select>
 
 
@@ -30,11 +28,11 @@
                 <div class="row">
                     <div class="col content">
                         <h4>Date</h4>
-                        <input type="date" max="1901-1-1">
+                        <input type="date" ng-model="elementData.date">
                     </div>
                     <div class="col content">
-                        <h4>Quotation No.</h4>
-                        <input type="text" value="QN 1001 001" readonly>
+                        <h4>Final Amt.</h4>
+                        <span ng-bind="(1+(elementData.taxRate/100))*elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                 </div>
             </ion-item>
@@ -49,10 +47,8 @@
                 </button>
                 <div class="content">
                     <h4>Vendor</h4>
-                    <select name="" id="">
-                        <option value="">Toykraft</option>
-                        <option value="">Whatsapp Inc.</option>
-                        <option value="">Amazon LLC.</option>
+                    <select name="" ng-model="elementData.vendor" id="">
+                        <option value="{{vendor.id}}" ng-repeat="vendor in vendors" ng-bind="vendor.name"></option>
                     </select>
 
 
@@ -101,40 +97,41 @@
                         </div>
                         <div class="in-col">
                             <h4>Amount</h4>
-                            <input type="text" ng-model="element.amount">
+                            <span ng-bind="element.price*element.quantity|currency:'₹ '"></span>
                         </div>
 
                     </div>
                 </div>
 
             </div>
-            
+
             <ion-item class="button-right simple">
-            <button class="button button-full button-dark" ng-click="addelements();">
-                <span>Add More</span>
-            </button>
+                <button class="button button-full button-dark" ng-click="addelements();">
+                    <span>Add More</span>
+                </button>
             </ion-item>
-            
+
         </div>
-<hr class="blue">
+        <hr class="blue">
         <div class="list quote-list grey-bg">
             <ion-item>
                 <div class="row">
                     <div class="col content">
                         <h4>Total Qty.</h4>
-                        <input type="text" readonly>
+                        <span ng-bind="elementData.totalQuantity"></span>
                     </div>
                     <div class="col content">
                         <h4>Total Amt.</h4>
-                        <input type="text" readonly>
+                        <span ng-bind="elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                     <div class="col content">
                         <h4>Tax Rate</h4>
-                        <input type="text" readonly>
+                        <input type="text" ng-model="elementData.taxRate">
                     </div>
                     <div class="col content">
-                        <h4>Tax Amt.</h4>
-                        <input type="text" readonly>
+                       <h4>Tax Amt.</h4>
+                        <span ng-bind="(elementData.taxRate/100)*elementData.totalAmount|currency:'₹ '"></span>
+
                     </div>
                 </div>
             </ion-item>
@@ -142,18 +139,18 @@
                 <div class="row">
                     <div class="col content">
                         <h4>Payment Terms</h4>
-                        <input type="text">
+                        <input type="text" ng-model="elementData.paymentTerms">
                     </div>
                     <div class="col content">
                         <h4>Final Amt.</h4>
-                        <input type="text" value="Rs.40,000" readonly>
+                        <span ng-bind="(1+(elementData.taxRate/100))*elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                 </div>
             </ion-item>
         </div>
 
         <div class="btn-final">
-            <button class="button button-tw button-bird">
+            <button class="button button-tw button-bird" ng-click="showPreview();">
                 Preview
             </button>
         </div>
