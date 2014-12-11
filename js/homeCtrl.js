@@ -88,6 +88,18 @@ angular.module('homeController', ['homeFactory', 'vendorFactory', 'companyFactor
 
         $scope.showPreview = function () {
             console.log($scope.elementData);
+            
+            var onSendSucess = function(data){
+                console.log(data);
+                
+            }
+            var OnSendError = function(data){
+                console.log(data);
+            }
+            homeFactory.sendQuote($scope.elementData,onSendSucess,OnSendError)
+            
+            
+            
         }
         //        $scope.i = 0;
         //        $scope.$watch('elementData.elements', function (newValue, oldValue) {
