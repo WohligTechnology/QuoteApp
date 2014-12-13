@@ -1,6 +1,7 @@
 angular.module('homeController', ['homeFactory', 'vendorFactory', 'companyFactory'])
-    .controller('HomeCtrl', function($scope, $ionicPopup, $timeout, $location, homeFactory, vendorFactory, companyFactory,$ionicScrollDelegate) {
-
+    .controller('HomeCtrl', function($scope, $ionicPopup, $timeout, $location, homeFactory, vendorFactory, companyFactory, $ionicScrollDelegate) {
+        $scope.menu = {};
+        $scope.menu.home = "active";
         $scope.elementData = {};
         $scope.elementData.elements = [{
             title: "",
@@ -22,7 +23,7 @@ angular.module('homeController', ['homeFactory', 'vendorFactory', 'companyFactor
                 price: "",
                 amount: ""
             });
-            
+
             $ionicScrollDelegate.scrollBottom(true);
 
         };

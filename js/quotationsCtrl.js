@@ -1,7 +1,10 @@
 angular.module('quotationsController', ['quotationsFactory', 'ionic'])
-    .controller('QuotationsCtrl', function($scope, $ionicModal, $timeout, quotationsFactory) {
+    .controller('QuotationsCtrl', function($scope, $ionicModal, $timeout, quotationsFactory,navigationFactory) {
         // Quotation API
         $scope.chakado = true;
+        $scope.menu={};
+        $scope.menu.quotations="active";
+    navigationFactory.changemenu($scope.menu);
         $scope.moreDataCanBeLoaded = function() {
             return $scope.chakado;
         }

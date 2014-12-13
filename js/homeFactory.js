@@ -4,6 +4,7 @@ angular.module('homeFactory', [])
         //        home.getQuotationId = function (callbacksuccess, callbackerror) {
         //            $http.get(ajaxurl+'json/getquotationid', {}).success(callbacksuccess).error(callbackerror);
         //        };
+        
         home.sendQuote = function (quotePreview, callbacksuccess, callbackerror) {
             console.log(quotePreview);
             $http({
