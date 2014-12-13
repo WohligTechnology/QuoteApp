@@ -5,11 +5,11 @@
         </button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <div class="list quote-list">
+        <ion-list class="quote-list">
 
-            <div class="item item-avatar button-right" ng-repeat = "quotation in quotations">
+            <ion-item class="item-avatar button-right" ng-repeat="quotation in quotations">
                 <img src="img/Twitter-square-logo1.png">
-                
+
                 <button class="button button-small button-light">
                     <span>View</span>
                 </button>
@@ -17,8 +17,12 @@
                     <h2>{{quotation.companyname}}</h2>
                     <h4>{{quotation.timestamp}}</h4>
                 </div>
+            </ion-item>
 
+        </ion-list>
 
-            </div>
+        <ion-infinite-scroll  ng-if="moreDataCanBeLoaded()" on-infinite="loadMore();" distance="1%">
+        </ion-infinite-scroll>
+
     </ion-content>
 </ion-view>
