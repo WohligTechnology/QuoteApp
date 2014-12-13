@@ -345,7 +345,7 @@ button {
     font-size: 16px;
     font-weight: 400;
     color: #777;
-    width: auto;
+    width: 50%;
 }
 .item.transparent {
     background: transparent;
@@ -481,8 +481,33 @@ textarea {
 .bar-stable .button {
     color: #50b2e3;
 }
-a.item-content {color: #777;}
-
+a.item-content {
+    color: #777;
+}
 .asterik {
     color: red;
+}
+@media screen and (max-width: 320px) {
+    .content input {
+        width: 40%;
+    }
+    .in-col {
+        width: 19%;
+    }
+}
+@media screen and (max-width: 315px) {
+    .content input {
+        width: 30%;
+    }
+    .in-col {
+        width: 17%;
+    }
+}
+@media screen and (max-width: 275px) {
+    .content input {
+        width: 26%;
+    }
+    .in-col {
+        width: 17%;
+    }
 }
