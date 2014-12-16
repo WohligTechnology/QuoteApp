@@ -1,16 +1,16 @@
 angular.module('quotationsController', ['quotationsFactory', 'ionic'])
-    .controller('QuotationsCtrl', function($scope, $ionicModal, $timeout, quotationsFactory,navigationFactory) {
+    .controller('QuotationsCtrl', function ($scope, $ionicModal, $timeout, quotationsFactory, navigationFactory) {
         // Quotation API
         $scope.chakado = true;
-        $scope.menu={};
-        $scope.menu.quotations="active";
-    navigationFactory.changemenu($scope.menu);
-        $scope.moreDataCanBeLoaded = function() {
+        $scope.menu = {};
+        $scope.menu.quotations = "active";
+        navigationFactory.changemenu($scope.menu);
+        $scope.moreDataCanBeLoaded = function () {
             return $scope.chakado;
         }
 
         $scope.quotations = [];
-        var ongetsuccess = function(data) {
+        var ongetsuccess = function (data) {
             console.log("THIS IS AAAAAAAA");
             console.log(data);
             $scope.lastpage = data.lastpage;
@@ -24,14 +24,14 @@ angular.module('quotationsController', ['quotationsFactory', 'ionic'])
             }
             firstpage++;
         };
-        var ongeterror = function(data) {
+        var ongeterror = function (data) {
             console.error(data);
         };
         var firstpage = 1;
         quotationsFactory.getQuotations(ongetsuccess, ongeterror, firstpage);
 
         //Loadmore
-        $scope.loadMore = function() {
+        $scope.loadMore = function () {
             console.log(firstpage);
             if (firstpage <= $scope.lastpage) {
                 quotationsFactory.getQuotations(ongetsuccess, ongeterror, firstpage);
