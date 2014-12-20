@@ -2,8 +2,6 @@ angular.module('quotationsController', ['quotationsFactory', 'ionic'])
 
     .controller('QuotationsCtrl', function($scope, $ionicModal, $timeout, quotationsFactory,navigationFactory,$location) {
 
-    .controller('QuotationsCtrl', function ($scope, $ionicModal, $timeout, quotationsFactory, navigationFactory) {
-
         // Quotation API
         $scope.chakado = true;
         $scope.menu = {};
