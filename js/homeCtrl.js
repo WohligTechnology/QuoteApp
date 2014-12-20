@@ -72,7 +72,7 @@ angular.module('homeController', ['homeFactory', 'vendorFactory', 'companyFactor
             console.error(data);
         };
 
-        vendorFactory.getVendors(ongetsuccess, ongeterror);
+        vendorFactory.getVendors(ongetsuccess, ongeterror,"1");
         //        //Get Quotation Id
         //        var ongetsuccess = function (data) {
         //            console.log(data);

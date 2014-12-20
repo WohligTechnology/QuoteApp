@@ -1,17 +1,55 @@
 angular.module('companyController', ['companyFactory'])
     .controller('CompanyCtrl', function ($scope, $ionicPopup, $timeout, companyFactory, $http, $location) {
-        //Demo factory
-        var ongetsuccess = function (data) {
-            console.log(data);
-            $scope.companies = data.queryresult;
-        };
+        
+        
+        
+        
+$scope.companies = [];
+var ongetsuccess = function (data) {
+    console.log("THIS IS AAAAAAAA");
+    console.log(data);
+    $scope.lastpage = data.lastpage;
 
-        var ongeterror = function (data) {
-            console.error(data);
-        };
+    for (var i = 0; i < data.queryresult.length; i++) {
+        $scope.companies.push(data.queryresult[i]);
+    }
+    $scope.$broadcast('scroll.infiniteScrollComplete');
+    if (data.pageno == data.lastpage) {
+        $scope.chakado = false;
+    }
+    firstpage++;
+};
+var ongeterror = function (data) {
+    console.error(data);
+};
+var firstpage = 1;
+companyFactory.getCompanies(ongetsuccess, ongeterror, firstpage);
 
-        companyFactory.getCompanies(ongetsuccess, ongeterror);
 
+
+$scope.loadMore = function () {
+    console.log(firstpage);
+    if (firstpage <= $scope.lastpage) {
+        companyFactory.getCompanies(ongetsuccess, ongeterror, firstpage);
+    };
+};        
+        
+        
+        
+        
+//        
+//        //Demo factory
+//        var ongetsuccess = function (data) {
+//            console.log(data);
+//            $scope.companies = data.queryresult;
+//        };
+//
+//        var ongeterror = function (data) {
+//            console.error(data);
+//        };
+//
+//        companyFactory.getCompanies(ongetsuccess, ongeterror);
+//
 
 
         var onDeleteSucess = function (data) {

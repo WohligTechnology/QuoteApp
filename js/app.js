@@ -4,10 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'companyController', 'homeController', 'loginController', 'quotationsController', 'companyController', 'vendorController', 'appController', 'companyFactory', 'homeFactory'])
+angular.module('starter', ['ionic', 'companyController', 'homeController', 'loginController', 'quotationsController', 'companyController', 'vendorController', 'appController', 'companyFactory', 'homeFactory','ngCordova'])
 
-.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+.run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,7 +20,7 @@ angular.module('starter', ['ionic', 'companyController', 'homeController', 'logi
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 
     .state('app', {
@@ -111,13 +111,24 @@ angular.module('starter', ['ionic', 'companyController', 'homeController', 'logi
                     controller: "editCompanyCtrl"
                 }
             }
+        })
+        .state('app.editQuotation', {
+            url: "/editQuotation/:id",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/quotationEdit.html",
+                    controller: "editQuotationCtrl"
+                }
+            }
         });
+
+    ;
 
 
     // if none of the above states are matched, use this as the fallback 
     $urlRouterProvider.otherwise('/app/home');
 })
-    .factory('navigationFactory', function($http) {
+    .factory('navigationFactory', function ($http) {
         var menu = {
             home: "",
             quotations: ""
@@ -127,12 +138,12 @@ angular.module('starter', ['ionic', 'companyController', 'homeController', 'logi
         //            $http.get(ajaxurl+'json/getquotationid', {}).success(callbacksuccess).error(callbackerror);
         //        };
 
-        menu.changemenu = function(menu2) {
+        menu.changemenu = function (menu2) {
             activemenu = menu2;
             return activemenu;
 
         };
-        menu.getmenu = function() {
+        menu.getmenu = function () {
             return activemenu;
         }
         return menu;

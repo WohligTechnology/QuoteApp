@@ -1,8 +1,8 @@
 angular.module('vendorFactory', [])
     .factory('vendorFactory', function ($http) {
         var vendor = {};
-        vendor.getVendors = function (callbacksuccess, callbackerror) {
-            $http.get(ajaxurl+'json/getallvendors', {}).success(callbacksuccess).error(callbackerror);
+        vendor.getVendors = function (callbacksuccess, callbackerror,pageno) {
+            $http.get(ajaxurl+'json/getallvendors?pageno=' + pageno, {}).success(callbacksuccess).error(callbackerror);
         };
 
         vendor.delete = function (id, callbacksuccess, callbackerror) {

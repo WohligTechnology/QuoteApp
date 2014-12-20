@@ -62,12 +62,13 @@ angular.module('companyFactory', [])
  };
 //Editing Companies        
         
-        factory.editCompany = function (company, callbacksuccess, callbackerror) {
+        factory.editCompany = function (company, callbacksuccess, callbackerror,pageno) {
             console.log(company);
             $http({
                 method: "post",
                 url: ajaxurl+'json/editcompany',
                 data: {
+                    pageno: pageno,
                     id: company.id,
                     user: "Vishal",
                     name: company.name,

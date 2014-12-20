@@ -1,20 +1,58 @@
 angular.module('vendorController', ['vendorFactory'])
     .controller('VendorCtrl', function ($scope, $ionicModal, $ionicPopup, $timeout, vendorFactory, $http,$location) {
 
+$scope.vendors = [];
+var ongetsuccess = function (data) {
+    console.log("THIS IS AAAAAAAA");
+    console.log(data);
+    $scope.lastpage = data.lastpage;
 
-        //Get All Vendors        
-        var ongetsuccess = function (data) {
-            console.log(data);
-            $scope.vendors = data.queryresult;
-        };
-        var ongeterror = function (data) {
-            console.error(data);
-        };
+    for (var i = 0; i < data.queryresult.length; i++) {
+        $scope.vendors.push(data.queryresult[i]);
+    }
+    $scope.$broadcast('scroll.infiniteScrollComplete');
+    if (data.pageno == data.lastpage) {
+        $scope.chakado = false;
+    }
+    firstpage++;
+};
+var ongeterror = function (data) {
+    console.error(data);
+};
+var firstpage = 1;
+vendorFactory.getVendors(ongetsuccess, ongeterror, firstpage);
 
-        vendorFactory.getVendors(ongetsuccess, ongeterror);
 
-        //Get A Single Vendor
 
+$scope.loadMore = function () {
+    console.log(firstpage);
+    if (firstpage <= $scope.lastpage) {
+        vendorFactory.getVendors(ongetsuccess, ongeterror, firstpage);
+    };
+};      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+//        //Get All Vendors        
+//        var ongetsuccess = function (data) {
+//            console.log(data);
+//            $scope.vendors = data.queryresult;
+//        };
+//        var ongeterror = function (data) {
+//            console.error(data);
+//        };
+//
+//        vendorFactory.getVendors(ongetsuccess, ongeterror);
+//
+//        //Get A Single Vendor
+//
 
 
 
