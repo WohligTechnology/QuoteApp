@@ -1,12 +1,7 @@
 angular.module('loginController', ['ionic', 'ngCordova'])
-.controller('LoginCtrl', function($scope, $ionicModal, $timeout,$cordovaOauth) {
-    
-$scope.facebookLogin = function() {
-        $cordovaOauth.facebook('726743300741442', ["email"]).then(function(result) {
-            // results
-        }, function(error) {
-            // error
-        });
-    }
-}   );
+    .controller('LoginCtrl', function ($scope, $ionicModal, $timeout, $cordovaOauth) {
 
+        $scope.twitterlogin = function () {
+            var ref = window.open('http://localhost/QuotationApp/admin/index.php/hauth/login/Twitter', '_blank', 'location=yes');
+        };
+    });
