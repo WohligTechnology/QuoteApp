@@ -6,7 +6,7 @@ angular.module('companyController', ['companyFactory'])
         
 $scope.companies = [];
 var ongetsuccess = function (data) {
-    console.log("THIS IS AAAAAAAA");
+    //console.log("THIS IS AAAAAAAA");
     console.log(data);
     $scope.lastpage = data.lastpage;
 

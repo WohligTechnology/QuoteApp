@@ -16,7 +16,7 @@
                 </button>
                 <div class="content">
                     <h4>My Company</h4>
-                    <select name="" ng-model="elementData.quotation.company" id="">
+                    <select name="" ng-model="elementData.company" id="">
                         <option value="{{company.id}}" ng-repeat="company in companies" ng-bind="company.name"></option>
                     </select>
 
@@ -32,7 +32,7 @@
                     </div>
                     <div class="col content">
                         <h4>Final Amt.</h4>
-                        <span ng-bind="(1+(elementData.taxRate/100))*elementData.totalAmount|currency:'₹ '"></span>
+                        <span ng-bind="(1+(elementData.taxrate/100))*elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                 </div>
             </ion-item>
@@ -47,7 +47,7 @@
                 </button>
                 <div class="content">
                     <h4>Vendor</h4>
-                    <select name="" ng-model="elementData.quotation.vendor" id="">
+                    <select name="" ng-model="elementData.vendor" id="">
                         <option value="{{vendor.id}}" ng-repeat="vendor in vendors">{{vendor.name}}</option>
                     </select>
 
@@ -62,7 +62,7 @@
 
         <div class="list blue-bg">
 
-            <div class="item" ng-repeat="element in elementData.quotationattributes">
+            <div class="item" ng-repeat="element in elementData.elements">
                 <span class="num">{{$index+1}}.</span>
                 <div class="in-item button-right">
                     <button class="button button-small button-dark" ng-click="changedescstatus(element);">
@@ -126,12 +126,11 @@
                     </div>
                     <div class="col content">
                         <h4>Tax Rate</h4>
-                        <input type="text" ng-model="elementData.quotation.taxrate">
+                        <input type="text" ng-model="elementData.taxrate">
                     </div>
                     <div class="col content">
                        <h4>Tax Amt.</h4>
-                        <span ng-bind="(elementData.taxRate/100)*elementData.totalAmount|currency:'₹ '"></span>
-
+                        <span ng-bind="(elementData.taxrate/100)*elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                 </div>
             </ion-item>
@@ -139,11 +138,11 @@
                 <div class="row">
                     <div class="col content">
                         <h4>Payment Terms</h4>
-                        <input type="text" ng-model="elementData.quotation.paymentterms">
+                        <input type="text" ng-model="elementData.paymentterms">
                     </div>
                     <div class="col content">
                         <h4>Final Amt.</h4>
-                        <span ng-bind="(1+(elementData.taxRate/100))*elementData.totalAmount|currency:'₹ '"></span>
+                        <span ng-bind="(1+(elementData.taxrate/100))*elementData.totalAmount|currency:'₹ '"></span>
                     </div>
                 </div>
             </ion-item>

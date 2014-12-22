@@ -50,12 +50,13 @@ $scope.showEditVendor = function(quotationId)
     })
 
 //Editing Quotations Controller
-.controller('editQuotationCtrl', function ($scope, $ionicModal, $timeout, quotationsFactory, navigationFactory,$stateParams,companyFactory,vendorFactory,$ionicScrollDelegate) {
+.controller('editQuotationCtrl', function ($scope, $ionicModal, $timeout, quotationsFactory, navigationFactory,$stateParams,companyFactory,vendorFactory,$ionicScrollDelegate,$location) {
 
-$scope.quotation = {};
+$scope.quotation = {}
 $scope.quotation.id = $stateParams.id;
-$scope.elementData = {};
-$scope.elementData.quotationattributes = [{
+$scope.elementData = {quotation:$scope.quotation.id};
+console.log($scope.elementData);
+$scope.elementData.elements = [{
             title: "",
             description: "",
             showdescription: false,
@@ -66,7 +67,7 @@ $scope.elementData.quotationattributes = [{
 
     
 $scope.addelements = function () {
-    $scope.elementData.quotationattributes.push({
+    $scope.elementData.elements.push({
         title: "",
         description: "",
         showdescription: false,
@@ -81,8 +82,8 @@ $scope.addelements = function () {
 
 //Removing Elements        
 $scope.removeElements = function (element) {
-    var indexwill = $scope.elementData.quotationattributes.indexOf(element);
-    $scope.elementData.quotationattributes.splice(indexwill, 1);
+    var indexwill = $scope.elementData.elements.indexOf(element);
+    $scope.elementData.elements.splice(indexwill, 1);
 
 };
 $scope.changedescstatus = function (element) {
@@ -97,7 +98,7 @@ $scope.changedescstatus = function (element) {
 //Getting the Quotation    
 var OnSucess = function (data) {
     $scope.elementData = data;
-//    $scope.elementData.quotationattributes = $scope.elementData.quotationattributes;
+//    $scope.elementData.elements = $scope.elementData.elements;
     console.log($scope.elementData);
  
 }
@@ -133,17 +134,17 @@ vendorFactory.getVendors(ongetsuccess, ongeterror,"1");
     
 
 //
-$scope.element = $scope.elementData.quotationattributes;
+$scope.element = $scope.elementData.elements;
 $scope.$watch(
     function (element) {
         $scope.elementData.totalQuantity = 0;
         $scope.elementData.totalAmount = 0;
-        for (i = 0; i < $scope.elementData.quotationattributes.length; i++) {
-            //console.log(parseInt($scope.elementData.quotationattributes[i].quantity));
-            var num = parseInt($scope.elementData.quotationattributes[i].quantity);
+        for (i = 0; i < $scope.elementData.elements.length; i++) {
+            //console.log(parseInt($scope.elementData.elements[i].quantity));
+            var num = parseInt($scope.elementData.elements[i].quantity);
             if (!isNaN(num)) {
-                $scope.elementData.totalQuantity += parseInt($scope.elementData.quotationattributes[i].quantity);
-                $scope.elementData.totalAmount += parseFloat($scope.elementData.quotationattributes[i].price * $scope.elementData.quotationattributes[i].quantity);
+                $scope.elementData.totalQuantity += parseInt($scope.elementData.elements[i].quantity);
+                $scope.elementData.totalAmount += parseFloat($scope.elementData.elements[i].price * $scope.elementData.elements[i].quantity);
             }
 
 
@@ -153,9 +154,19 @@ $scope.$watch(
     function () {}
 );
 
-    $scope.showPreview = function()
-    {
-        console.log($scope.elementData);
+    $scope.showPreview = function () {
+        
+        var OnSucess = function (data) {
+            console.log(data);
+            $location.path("/app/quotations");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+
+        }
+
+        var Onerror = function (data) {
+            console.log(data);
+        }
+
+        quotationsFactory.editQuote($scope.elementData, OnSucess, Onerror);        
     }
    
 
