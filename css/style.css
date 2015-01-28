@@ -192,7 +192,7 @@ textarea {
     min-height: 50px;
 }
 .bar.bar-stable .title {
-    color: #50b2e3;
+    color: #071F21;
     font-size: 20px;
 }
 .bar.bar-stable {
@@ -238,7 +238,6 @@ h6,
     font-family: "Ionicons";
     font-size: 30px;
     position: absolute;
-    left: -12px;
     top: 0px;
     color: #50b2e3;
 }
@@ -486,6 +485,15 @@ a.item-content {
 }
 .asterik {
     color: red;
+}
+.profile-dec1{
+    height: 100%
+}
+p.profile-dec1_no {
+    font-size: 25px;
+}
+.bar-movie{
+    height:100%
 }
 @media screen and (max-width: 320px) {
     .content input {
