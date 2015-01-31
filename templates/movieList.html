@@ -1,28 +1,76 @@
-<ion-view title="Quotations">
+<ion-view title="">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button-img">
-            <img src="img/header.png" alt="" class="full-img">
+
         </button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        <ion-list class="quote-list">
-
-            <ion-item class="item-avatar button-right" ng-repeat="quotation in quotations">
-                <img src="img/Twitter-square-logo1.png">
-
-                <button class="button button-small button-light" ng-click="showEditVendor(quotation.id);">
-                    <span>View</span>
-                </button>
-                <div class="content">
-                    <h2>{{quotation.companyname}}</h2>
-                    <h4>{{quotation.timestamp}}</h4>
-                </div>
-            </ion-item>
-
-        </ion-list>
-
-        <ion-infinite-scroll  ng-if="moreDataCanBeLoaded()" on-infinite="loadMore();" distance="1%">
-        </ion-infinite-scroll>
-
+               <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>
+<!--<div class = "row"></div>       
+<div class="tabs-striped tabs-background-positive tabs-color-light">
+    <div class="tabs">
+        <a class="tab-item" href="#">
+IN THEATRES
+</a>
+ <a class="tab-item" href="#">
+COMING SOON
+</a>
+    </div>
+</div>-->
+<div class="row">
+    <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>        
+    </div>
+        <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>        
+    </div>
+        <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>        
+    </div>
+        <div class="col col-50">
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" src="img/movie.jpg">
+            </div>
+        </div>
+        
+    </div>
+</div>
     </ion-content>
 </ion-view>

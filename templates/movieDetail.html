@@ -1,33 +1,54 @@
-<ion-view title="Company">
+<ion-view title="Details">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button-img">
-            <img src="img/header.png" alt="" class="full-img">
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
         <button class="button button-icon ion-ios7-plus-outline" ng-click="showAddCompany();"></button>
     </ion-nav-buttons>
+<ion-content class="has-header">
+<div class="list card">
 
-    <ion-content class="has-header">
-        <div class="list quote-list">
+  <div class="item item-avatar movie-name">
+  <h2>Captian America: The Winter Solider, English(A)</h2>
+      <p>143 min   |   Action,Drama  |   4 May 2012 </p>
+  </div>
 
-            <div class="item item-avatar button-right" ng-repeat="company in companies">
-                <img ng-src="img/{{company.logo}}">
-                <button class="button button-small button-delete" ng-click=deleteConfirm(company.id);>
-                    <span>Delete</span>
-                </button>
-                <button class="button button-small button-light" ng-click=showEditCompany(company.id);>
-                    <span>View</span>
-                </button>
-                <div class="content">
-                    <h2>{{company.name}}</h2>
-                    <h4>{{company.email}}</h4>
-                </div>
+  <div class="item item-body">
+    <img class="full-image" src="img/movie.jpg">
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
 
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
 
-            </div>
+</div>        
 
-            <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore();" distance="1%">
+           
+           
+           
+           
+           <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore();" distance="1%">
             </ion-infinite-scroll>
 
 
